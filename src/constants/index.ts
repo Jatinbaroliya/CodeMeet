@@ -8,23 +8,36 @@ export const INTERVIEW_CATEGORY = [
 ] as const;
 
 export const TIME_SLOTS = [
-  "09:00",
-  "09:30",
-  "10:00",
-  "10:30",
-  "11:00",
-  "11:30",
-  "12:00",
-  "12:30",
-  "13:00",
-  "13:30",
-  "14:00",
-  "14:30",
-  "15:00",
-  "15:30",
-  "16:00",
-  "16:30",
-  "17:00",
+  "09:00 AM",
+  "09:30 AM",
+  "10:00 AM",
+  "10:30 AM",
+  "11:00 AM",
+  "11:30 AM",
+  "12:00 PM",
+  "12:30 PM",
+  "01:00 PM",
+  "01:30 PM",
+  "02:00 PM",
+  "02:30 PM",
+  "03:00 PM",
+  "03:30 PM",
+  "04:00 PM",
+  "04:30 PM",
+  "05:00 PM",
+  "05:30 PM",
+  "06:00 PM",
+  "06:30 PM",
+  "07:00 PM",
+  "07:30 PM",
+  "08:00 PM",
+  "08:30 PM",
+  "09:00 PM",
+  "09:30 PM",
+  "10:00 PM",
+  "10:30 PM",
+  "11:00 PM",
+  "11:30 PM",
 ];
 
 export const QUICK_ACTIONS = [
@@ -89,6 +102,13 @@ export const CODING_QUESTIONS: CodeQuestion[] = [
         
     }
 }`,
+      cpp: `#include <vector>
+using namespace std;
+
+vector<int> twoSum(vector<int>& nums, int target) {
+    // Write your solution here
+    return {};
+}`,
     },
     constraints: [
       "2 ≤ nums.length ≤ 104",
@@ -126,6 +146,12 @@ export const CODING_QUESTIONS: CodeQuestion[] = [
         
     }
 }`,
+      cpp: `#include <vector>
+using namespace std;
+
+void reverseString(vector<char>& s) {
+    // Write your solution here
+}`,
     },
   },
   {
@@ -160,11 +186,19 @@ export const CODING_QUESTIONS: CodeQuestion[] = [
         
     }
 }`,
+      cpp: `#include <string>
+using namespace std;
+
+bool isPalindrome(int x) {
+    // Write your solution here
+    return false;
+}`,
     },
   },
 ];
 
 export const LANGUAGES = [
+  { id: "cpp", name: "C++", icon: "/cpp.png" },
   { id: "javascript", name: "JavaScript", icon: "/javascript.png" },
   { id: "python", name: "Python", icon: "/python.png" },
   { id: "java", name: "Java", icon: "/java.png" },
@@ -183,6 +217,7 @@ export interface CodeQuestion {
     javascript: string;
     python: string;
     java: string;
+    cpp: string;
   };
   constraints?: string[];
 }
