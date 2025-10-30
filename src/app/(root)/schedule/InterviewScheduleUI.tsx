@@ -33,8 +33,8 @@ function InterviewScheduleUI() {
   const [open, setOpen] = useState(false);
   const [isCreating, setIsCreating] = useState(false);
 
-  const interviews = useQuery(api.interviews.getAllInterviews) ?? [];
-  const users = useQuery(api.users.getUsers) ?? [];
+  const interviews = useQuery(api.interviews.getAllInterviews) || []; // Ensure fallback to empty array
+  const users = useQuery(api.users.getUsers) || []; // Ensure fallback to empty array
   const createInterview = useMutation(api.interviews.createInterview);
 
   const candidates = users?.filter((u) => u.role === "candidate");
@@ -50,7 +50,10 @@ function InterviewScheduleUI() {
   });
 
   const scheduleMeeting = async () => {
-    if (!client || !user) return;
+    if (!client || !user) {
+      toast.error("Client or user not initialized");
+      return;
+    }
     if (!formData.candidateId || formData.interviewerIds.length === 0) {
       toast.error("Please select both candidate and at least one interviewer");
       return;
